@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="style.css">
+    <title>SkyWay</title>
+</head>
+
+<body>
+    <header><h1 class="header-text">Webトラ!</h1></header>
+    <p id="id-disp">ID: <span id="my-id"></span></p>
+    <p id="Menber-disp">参加人数: <span id="Members">不明</span></p>
+    <div>
+        <!--room name: <input id="room-name" type="text" />-->
+        <button id="join" class="join-btn"><p class="btn-str">接続する</p></button>
+    </div>
+
+    <button id="NonMute-btn" style="touch-action: none; user-select: none;" oncontextmenu="return false;"><p class="btn-str">ミュート解除</p></button>
+    <p id="MuteInfo">接続されていません</p>
+
+    <p><button id="leave" class="leave-btn">退出</button></p>
+
+    <div id="button-area"></div>
+    <div id="remote-media-area"></div>
+
+    <div class="Id-Key">
+        <p>Application ID:<input id="App-id" type="text" /></p>
+        <p>Secret Key:<input id="Secret-key" type="text" /></p>
+        <p>Token:<input id="Token" type="text" /></p>
+        <p><button id="save" class="save-btn" onclick="IdKeySave()">保存</button></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@skyway-sdk/room/dist/skyway_room-latest.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
