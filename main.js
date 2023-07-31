@@ -1,14 +1,21 @@
 const { nowInSec, SkyWayAuthToken, SkyWayContext, SkyWayRoom, SkyWayStreamFactory, uuidV4 } = skyway_room;
 
 window.onload = async function () {
-    var Token = localStorage.getItem('Token');
-
-    console.log(Token);
-    if (Token != "") {
-        console.log("Tokenをロードしました");
-        await SkyWay_main(String(Token));
+    let href = location.hash.slice(1);
+    console.log(href);
+    if (href != "") {
+        await localStorage.setItem('Token', href);
+        console.log("保存済み");
+        window.location.href = location.pathname;
     } else {
-        alert("認証情報を入力してください");
+        var Token = localStorage.getItem('Token');
+        console.log(Token);
+        if (Token != "") {
+            console.log("Tokenをロードしました");
+            await SkyWay_main(String(Token));
+        } else {
+            alert("認証情報を入力してください");
+        }
     }
 }
 
