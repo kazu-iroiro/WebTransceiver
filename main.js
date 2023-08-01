@@ -162,10 +162,7 @@ function SkyWay_main(token) {
                 const target = document.getElementById('MuteInfo');
                 target.textContent = "ミュート解除中";
                 NonMutebtn.style.backgroundColor = "red";
-                if (mic_flag == false) {
-                    await publication.enable();
-                    mic_flag = true;
-                }
+                await publication.enable();
             };
 
             const subscribeAndAttach = (publication) => {
