@@ -106,6 +106,7 @@ function SkyWay_main(token) {
         const NonMutebtn = document.getElementById('NonMute-btn');
 
         const leavebtn = document.getElementById('leave');
+        var mic_flag = false;
 
         joinButton.onclick = async () => {
 
@@ -153,7 +154,7 @@ function SkyWay_main(token) {
                     const target = document.getElementById('MuteInfo');
                     target.textContent = "ミュート中";
                     NonMutebtn.style.backgroundColor = "rgb(147, 235, 235)";
-                    await publication.disable();
+                    mic_flag = false;
                 }, { once: true });
             });
 
@@ -161,7 +162,10 @@ function SkyWay_main(token) {
                 const target = document.getElementById('MuteInfo');
                 target.textContent = "ミュート解除中";
                 NonMutebtn.style.backgroundColor = "red";
-                await publication.enable();
+                if (mic_flag = false) {
+                    await publication.enable();
+                    mic_flag = true;
+                }
             };
 
             const subscribeAndAttach = (publication) => {
